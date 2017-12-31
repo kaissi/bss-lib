@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+readonly BSS_LOG_LEVEL_INFO="INFO"
+readonly BSS_LOG_LEVEL_ERROR="ERROR"
+readonly BSS_LOG_LEVEL_DEBUG="DEBUG"
+
+format_timestamp() {
+  date +"%Y-%m-%d %H:%M:%S"
+}
+
+log() {
+  local readlonly _timestamp="$1" && shift
+  local readonly _log_level="$1" && shift
+  local readonly _message="$@"
+  echo -e "${_timestamp} [${_log_level}] ${_message}"
+}
+
+log_info() {
+  log "$(format_timestamp)" "$BSS_LOG_LEVEL_INFO" "$@"
+}
+
+log_error() {
+  log "$(format_timestamp)" "$BSS_LOG_LEVEL_ERROR" "$@"
+}
+
+log_debug() {
+  log "$(format_timestamp)" "$BSS_LOG_LEVEL_DEBUG" "$@"
+}
+
