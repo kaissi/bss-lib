@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Author: Rafael Kaissi <mrkaissi@gmail.com>
 
 is_root() {
   if [[ $(/usr/bin/id -u) -ne 0 ]]; then

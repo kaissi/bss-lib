@@ -1,3 +1,4 @@
 # Bash Shell Scripting library
 
-A bash shell-scripting libraries used in many projects.
+Bash shell-scripting libraries used in other projects.
+
