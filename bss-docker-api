@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Author: Rafael Kaissi <mrkaissi@gmail.com>
+
+. bss-commons-api
+
+# Parameters: 1- _docker_name
+get_docker_hostname() {
+  local _docker_name=${1}
+  echo `sed 's/[_\.]/-/g' <<<"${_docker_name}.$(get_hostname)"`
+}
+
+# Parameters: 1- _docker_name
+docker_remove() {
+  local _docker_name=${1}
+  docker ps -a --format '{{.Names}}' | grep -w ${_docker_name} | xargs -I {} docker stop {} | xargs -I {} docker rm {}
+}
+

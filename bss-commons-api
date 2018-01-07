@@ -15,3 +15,8 @@ must_be_root() {
     exit 1
   fi
 }
+
+get_hostname() {
+  echo "$(hostname -s)"
+}
+
